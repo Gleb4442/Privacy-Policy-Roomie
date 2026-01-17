@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,20 +113,81 @@
         tr:hover {
             background-color: #f1f5f9;
         }
+        
+        /* Navigation Sidebar Styles */
+        .nav-dot {
+            transition: all 0.3s ease;
+        }
+        .nav-label {
+            opacity: 0.5;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+        .nav-item.active .nav-dot {
+            background-color: #2563eb; /* blue-600 */
+            border-color: #2563eb;
+            transform: scale(1.25);
+        }
+        .nav-item.active .nav-label {
+            opacity: 1;
+            color: #2563eb;
+            transform: translateX(0);
+            font-weight: 600;
+        }
+        .nav-item:hover .nav-label {
+            opacity: 1;
+            transform: translateX(0);
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-700 antialiased leading-relaxed selection:bg-blue-100 selection:text-blue-900">
+<body class="bg-slate-50 text-slate-700 antialiased leading-relaxed selection:bg-blue-100 selection:text-blue-900 relative">
 
     <!-- Language Switcher Container -->
     <div class="fixed z-50 transition-all duration-300 bottom-6 right-6 md:bottom-auto md:top-8 md:right-8">
         <div id="google_translate_element"></div>
     </div>
 
+    <!-- Navigation Sidebar (Hidden on mobile, Visible on XL screens) -->
+    <nav class="hidden xl:flex fixed right-8 top-1/2 -translate-y-1/2 z-40 flex-col gap-4 pl-4 border-l border-slate-200">
+        <a href="#intro" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Введение</span>
+        </a>
+        <a href="#categories" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Категории данных</span>
+        </a>
+        <a href="#cookies" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Cookie & Трекеры</span>
+        </a>
+        <a href="#algo" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Алгоритмы</span>
+        </a>
+        <a href="#transfer" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Передача данных</span>
+        </a>
+        <a href="#retention" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Сроки хранения</span>
+        </a>
+        <a href="#rights" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Ваши права</span>
+        </a>
+        <a href="#security" class="nav-item group flex items-center gap-3 relative -ml-[21px]">
+            <div class="nav-dot w-2.5 h-2.5 rounded-full bg-white border-2 border-slate-300 group-hover:border-blue-400"></div>
+            <span class="nav-label text-sm text-slate-600">Безопасность</span>
+        </a>
+    </nav>
+
     <!-- Main Content Container -->
     <main class="max-w-4xl mx-auto px-6 py-12 md:py-24 bg-white shadow-xl shadow-slate-200/50 my-0 md:my-10 rounded-none md:rounded-2xl">
         
         <!-- Header -->
-        <header class="mb-12 border-b border-slate-100 pb-10 text-center md:text-left">
+        <header id="intro" class="mb-12 border-b border-slate-100 pb-10 text-center md:text-left scroll-mt-32">
             <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">
                 Privacy Policy
             </div>
@@ -135,7 +196,7 @@
         </header>
 
         <!-- Section 1 -->
-        <section class="mb-16">
+        <section class="mb-16 scroll-mt-32">
             <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                 <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-blue-600 text-sm font-bold">1</span>
                 Введение и Обязательства
@@ -167,7 +228,7 @@
         </section>
 
         <!-- Section 2 -->
-        <section class="mb-16">
+        <section id="categories" class="mb-16 scroll-mt-32">
             <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                 <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-blue-600 text-sm font-bold">2</span>
                 Категории собираемых данных и цели обработки
@@ -279,7 +340,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
             
             <!-- Section 3 -->
-            <section class="bg-slate-50 p-8 rounded-2xl border border-slate-100 h-full">
+            <section id="cookies" class="bg-slate-50 p-8 rounded-2xl border border-slate-100 h-full scroll-mt-32">
                 <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                     <span class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm">3</span>
                     Политика Cookie и трекеров
@@ -301,7 +362,7 @@
             </section>
 
             <!-- Section 4 -->
-            <section class="bg-slate-50 p-8 rounded-2xl border border-slate-100 h-full">
+            <section id="algo" class="bg-slate-50 p-8 rounded-2xl border border-slate-100 h-full scroll-mt-32">
                 <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
                     <span class="w-8 h-8 rounded-lg bg-white border border-slate-200 text-slate-600 flex items-center justify-center font-bold text-sm">4</span>
                     Алгоритмы и Профилирование
@@ -323,7 +384,7 @@
         </div>
 
         <!-- Section 5: Data Transfer -->
-        <section class="mb-16">
+        <section id="transfer" class="mb-16 scroll-mt-32">
             <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                 <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-blue-600 text-sm font-bold">5</span>
                 Передача данных и Трансграничные потоки
@@ -339,7 +400,7 @@
         </section>
 
         <!-- Section 6: Retention (Full Table Restored) -->
-        <section class="mb-16">
+        <section id="retention" class="mb-16 scroll-mt-32">
             <h2 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                 <span class="flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-blue-600 text-sm font-bold">6</span>
                 Сроки хранения (Data Retention)
@@ -388,7 +449,7 @@
         </section>
 
         <!-- Section 7: Rights (Full Description Restored) -->
-        <section class="mb-16">
+        <section id="rights" class="mb-16 scroll-mt-32">
             <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">
                 7. Ваши Права и Контроль (ISO 29100 Principle 5)
             </h2>
@@ -456,7 +517,7 @@
         </section>
 
         <!-- Section 8 -->
-        <section class="mb-12">
+        <section id="security" class="mb-12 scroll-mt-32">
             <div class="bg-slate-800 text-slate-300 p-8 rounded-2xl">
                 <h2 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
                     <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
@@ -503,6 +564,36 @@
         window.addEventListener('load', function() {
             var userLang = navigator.language || navigator.userLanguage; 
             console.log("User Language detected:", userLang);
+        });
+
+        // Navigation Highlight Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('header, section');
+            const navLinks = document.querySelectorAll('.nav-item');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', // Active zone is a strip in the middle
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Remove active class from all links
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        
+                        // Add active class to corresponding link
+                        const id = entry.target.getAttribute('id');
+                        if (id) {
+                            const activeLink = document.querySelector(`.nav-item[href="#${id}"]`);
+                            if (activeLink) activeLink.classList.add('active');
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => observer.observe(section));
         });
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
